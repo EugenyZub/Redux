@@ -1,3 +1,5 @@
 export const inc = () => ({type: 'INC'});
 export const dec = () => ({type: 'DEC'});
-export const zero = (value) => ({type: 'ZERO', value});
+export const zero = () => {
+    return {type: 'ZERO', value: 0};
+};

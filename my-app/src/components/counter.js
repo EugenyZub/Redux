@@ -1,5 +1,8 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import './counter.css';
+import * as actions from '../actions';
+// import {bindActionCreators} from 'redux';
 
 const Counter = ({counter, inc, dec, zero}) => {
     return (
@@ -22,9 +25,14 @@ const Counter = ({counter, inc, dec, zero}) => {
                             <img src='./img/bottomArrow.png' alt="bottomArrow"/>
                     </button>
 			</div>
-		</div>
-		
+		</div>		
     )
 }
 
-export default Counter;
+const mapStateToProps = (state) => {
+    return {
+        counter: state
+    }
+}
+
+export default connect(mapStateToProps, actions)(Counter);
